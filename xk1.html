@@ -7,11 +7,32 @@
 <body>
   <a href="index.html">Back to Homepage</a>
   <h2>Create Vendor</h2>
-  <form>
-    Vendor Name: <input type="text"><br>
-    Bank Name: <input type="text"><br>
-    <button type="submit">Save Vendor</button>
-  </form>
+  <form id="vendorForm">
+  Vendor Name: <input type="text" id="vendorName"><br>
+  Bank Name: <input type="text" id="bankName"><br>
+  <button type="submit">Save Vendor</button>
+</form>
+
+<script>
+  document.getElementById('vendorForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('vendorName').value;
+    const bank = document.getElementById('bankName').value;
+
+    db.collection('vendors').add({
+      name: name,
+      bank: bank,
+      createdAt: new Date()
+    })
+    .then(() => {
+      alert('Vendor saved to Firebase!');
+    })
+    .catch((error) => {
+      console.error('Error saving vendor:', error);
+    });
+  });
+</script>
+
   <!-- Firebase JS SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
