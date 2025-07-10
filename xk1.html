@@ -12,5 +12,22 @@
     Bank Name: <input type="text"><br>
     <button type="submit">Save Vendor</button>
   </form>
+  <!-- Firebase JS SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDqkYLSE5aT9Mf7eDwp6LBlmdHg9CK5OTo",
+  authDomain: "kakimakanaccounting.firebaseapp.com",
+  projectId: "kakimakanaccounting",
+  storageBucket: "kakimakanaccounting.firebasestorage.app",
+  messagingSenderId: "1030901229420",
+  appId: "1:1030901229420:web:7a23991fc21ecd0ef5b549"
+};
+
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
 </body>
 </html>
